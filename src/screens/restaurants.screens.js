@@ -9,8 +9,8 @@ const isAndroid = Platform.OS === "android";
 const RestaurantsScreen = () => {
   const [search, setSearch] = useState("");
 
-  const onChangeSearch = (query) => {
-    setSearch(query);
+  const onChangeSearch = (str) => {
+    setSearch(str);
   };
 
   useEffect(() => {
@@ -23,12 +23,12 @@ const RestaurantsScreen = () => {
   `;
 
   const SearchContainer = styled.View`
-    padding: 16px;
+    padding: ${(props) => props.theme.space[3]};
   `;
 
   const ListContainer = styled.View`
     flex: 1;
-    padding: 16px;
+    padding: ${(props) => props.theme.space[3]};
   `;
 
   return (
@@ -37,7 +37,7 @@ const RestaurantsScreen = () => {
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
-          value={search}
+          defaultValue={search}
         />
       </SearchContainer>
       <ListContainer>
