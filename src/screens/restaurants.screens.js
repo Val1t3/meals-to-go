@@ -37,7 +37,7 @@ const RestaurantsScreen = () => {
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
-          defaultValue={search}
+          value={search}
         />
       </SearchContainer>
       <ListContainer>

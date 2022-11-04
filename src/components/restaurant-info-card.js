@@ -1,11 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from "react";
 import { Card } from "react-native-paper";
-import { Text, Image, View } from "react-native";
+import { Text, Image } from "react-native";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../assets/icons/star";
 import isOpen from "../../assets/icons/isOpen";
+import { Spacer } from "./spacer/spacer";
 
 const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
@@ -69,8 +70,8 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
           <Title>{name}</Title>
           <Row>
             <Rating>
-              {RatingArray.map(() => {
-                return <SvgXml xml={star} width={20} height={20} />;
+              {RatingArray.map((index) => {
+                return <SvgXml key={index} xml={star} width={20} height={20} />;
               })}
             </Rating>
             <SectionEnd>
@@ -79,10 +80,15 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
                   CLOSED TEMPORARILY
                 </Text>
               )}
-              <View style={{ marginLeft: 16 }} />
-              {isOpenNow && <SvgXml xml={isOpen} width={20} height={20} />}
-              <View style={{ marginLeft: 16 }} />
-              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+              <Spacer position="left" size="large">
+                {isOpenNow && <SvgXml xml={isOpen} width={20} height={20} />}
+              </Spacer>
+              <Spacer position="left" size="large">
+                <Image
+                  style={{ width: 15, height: 15 }}
+                  source={{ uri: icon }}
+                />
+              </Spacer>
             </SectionEnd>
           </Row>
           <Adress>{address}</Adress>
