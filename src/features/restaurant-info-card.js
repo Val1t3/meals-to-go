@@ -1,51 +1,22 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from "react";
-import { Card } from "react-native-paper";
-import { Text, Image } from "react-native";
-import styled from "styled-components/native";
-import { SvgXml } from "react-native-svg";
+import { Image } from "react-native";
 import star from "../../assets/icons/star";
 import isOpen from "../../assets/icons/isOpen";
-import { Spacer } from "./spacer/spacer";
+import { SvgXml } from "react-native-svg";
+import { Spacer } from "../components/spacer/spacer";
+import { Text } from "../components/typography/text";
 
-const RestaurantCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const Title = styled.Text`
-  color: ${(props) => props.theme.colors.ui.primary};
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-`;
-
-const Adress = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
-
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-`;
-
-const SectionEnd = styled.View`
-  flex-direction: row;
-`;
-
-const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
+import {
+  RestaurantCard,
+  RestaurantCardCover,
+  Info,
+  Title,
+  Row,
+  Rating,
+  SectionEnd,
+  Address,
+} from "./restaurant-info-card.styles";
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -91,7 +62,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
               </Spacer>
             </SectionEnd>
           </Row>
-          <Adress>{address}</Adress>
+          <Address>{address}</Address>
         </Info>
       </RestaurantCard>
     </>
