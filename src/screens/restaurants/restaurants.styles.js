@@ -6,6 +6,7 @@ const isAndroid = Platform.OS === "android";
 export const SafeArea = styled.SafeAreaView`
   flex: 1;
   margin-top: ${isAndroid ? StatusBar.currentHeight + "px" : "0px"};
+  background-color: white;
 `;
 
 export const SearchContainer = styled.View`
