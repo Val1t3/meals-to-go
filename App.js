@@ -14,6 +14,8 @@ import { Text } from "react-native";
 import { SafeArea } from "./src/components/utility/safe-area";
 import { Ionicons } from "@expo/vector-icons";
 
+import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
+
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
